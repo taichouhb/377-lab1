@@ -5,19 +5,17 @@
 #include <string.h>
 
 int main() {
-	char *input = (char *) malloc(sizeof(char));
-	char *program;
-	char *input_p;
+	char *program, *line_p, *line = (char *) malloc(sizeof(char));
+	size_t size = 0;
 	int status;
 	while(1) {
 		printf("batch-shell> ");
-		scanf("%s",input);
-		if(strcmp(input, "quit") == 0){
+		if(strcmp(fgets(line, 1024, stdin),"quit\n") == 0) {
 			exit(0);
 		}
-		input_p = input;
-		while(input_p != NULL) {
-			program = strsep(&input_p, " ");
+		line_p = line = strtok(line, "\n");
+		while(line_p != NULL) {
+			program = strsep(&line_p, " ");
 			printf("%s\n", program);
 			int pid = fork();
 			if(pid == 0) {
@@ -26,6 +24,8 @@ int main() {
 			}
 			waitpid(pid, &status, 0);
 		}
+		free(line);
+		line = (char *)malloc(sizeof(char));
 	}
 }
 
