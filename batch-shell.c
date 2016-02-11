@@ -16,10 +16,9 @@ int main() {
 		line_p = line = strtok(line, "\n");
 		while(line_p != NULL) {
 			program = strsep(&line_p, " ");
-			printf("%s\n", program);
 			int pid = fork();
 			if(pid == 0) {
-				execl("./", program, NULL);
+				execlp(program, "", (char *)0);
 				exit(0);
 			}
 			waitpid(pid, &status, 0);
