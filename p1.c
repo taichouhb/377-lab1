@@ -18,7 +18,7 @@ int main() {
 			sleep(10); 
 			printf("Grandchild process with process id %d has completed.\n", getpid());
 		} else {
-			//when we are back in child process
+			//if we are in child process
 			int g_status;
 			//the child process needs to wait for the grandchild to finish executing
 			if(waitpid(g_pid, &g_status, 0)) {

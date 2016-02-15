@@ -12,13 +12,14 @@ int main() {
 	printf("Enter a pid: \n");
 	scanf("%d", &id);
 
-	//check to see if the id entered is a proper PID that is running on the system
+	//check to see if the PID entered is within this processe's process group
 	if(getpgid(id) >= 0) {  
-		//check to see if the PID entered is within this processe's process group
 		//if it is, (kill returns a non zero number) then we have authority to kill 
 		if(kill(id,4) != 0) {
 			printf("You don't have permission to kill %d\n", id);
 			//need to return something here to indicate failure
+		} else {
+			printf("%d has been killed\n", id);
 		}
 		//return something here to indicate success
 		//since we called kill in the if, kill is run. If an error turns up, then we'll catch

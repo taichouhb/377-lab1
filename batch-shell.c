@@ -19,7 +19,7 @@ int main() {
 		if(strcmp(fgets(line, 1024, stdin),"quit\n") == 0) {
 			exit(0);
 		}
-		//traverse through the input string to the next available token (next program)
+		//remove the newline at the end of line
 		line_p = line = strtok(line, "\n");
 		//while there are more tokens in the inputed string to run
 		while(line_p != NULL) {
@@ -37,7 +37,8 @@ int main() {
 			waitpid(pid, &status, 0);
 		}
 		//free the current line and malloc another data
-		//we ran into a problem with the execution, and this was the fix for that
+		//This a solution to the use case where strtok tokenizes an empty string
+		//therefore return a null pointer so the second loop results in a seg fault.
 		free(line);
 		line = (char *)malloc(sizeof(char));
 	}
