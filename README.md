@@ -1,6 +1,6 @@
-# 377-lab1
+## 377-lab1
 # Authors: Ben Cheung, Cheyan Setayesh, Zach Milrod
-#2/16/15
+# 2/16/15
 
 
 
