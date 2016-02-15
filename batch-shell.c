@@ -29,7 +29,8 @@ int main() {
 			int pid = fork();
 			//if in child
 			if(pid == 0) {
-				//execute the program
+				//print process id and execute program
+				printf("%d is executing %s program\n", getpid(), program);
 				execlp(program, "", (char *)0);
 				exit(0);
 			}
