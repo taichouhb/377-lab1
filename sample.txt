@@ -1,0 +1,22 @@
+P1:
+Grandchild process with process id 27864 has completed.
+Child process with process ID 27863 has completed.
+
+P2:
+Enter a pid: 
+18640
+18640 has been killed
+
+P3 Batch-Shell:
+batch-shell> man         
+21537 is executing man program
+What manual page do you want?
+batch-shell> man man
+21538 is executing man program
+What manual page do you want?
+21539 is executing man program
+What manual page do you want?
+batch-shell> exit
+21542 is executing exit program
+batch-shell> quit
+

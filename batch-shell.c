@@ -9,7 +9,6 @@ int main() {
 	//allocate space for the program on deck, the line, and line pointer for
 	//where we've gone through to
 	char *program, *line_p, *line = (char *) malloc(sizeof(char));
-	size_t size = 0;
 	int status;
 	//continuos while loop
 	while(1) {
